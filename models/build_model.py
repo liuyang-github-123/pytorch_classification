@@ -67,12 +67,12 @@ def Resnext101_32x16d(num_classes, test=False):
 
 def Resnext101_32x32d(num_classes, test=False):
     model = resnext101_32x32d_wsl()
-    if not test:
-        if LOCAL_PRETRAINED['resnext101_32x32d'] == None:
-            state_dict = load_state_dict_from_url(model_urls['resnext101_32x32d'], progress=True)
-        else:
-            state_dict = state_dict = torch.load(LOCAL_PRETRAINED['resnext101_32x32d'])
-        model.load_state_dict(state_dict)
+    # if not test:
+    #     if LOCAL_PRETRAINED['resnext101_32x32d']== 0:
+    #         state_dict = load_state_dict_from_url(model_urls['resnext101_32x32d'], progress=True)
+    #     else:
+    #         state_dict = state_dict = torch.load(LOCAL_PRETRAINED['resnext101_32x32d'])
+    #     model.load_state_dict(state_dict)
     fc_features = model.fc.in_features
     model.fc = nn.Linear(fc_features, num_classes)
     return model

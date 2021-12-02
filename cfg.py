@@ -4,19 +4,20 @@
 # @author :lxztju
 # @github : https://github.com/lxztju
 import os
-home = os.path.expanduser('~')
+home = "E://pytorch_classification"
 ##数据集的类别
-NUM_CLASSES = 206
+NUM_CLASSES = 2
 
 #训练时batch的大小
-BATCH_SIZE = 32
+BATCH_SIZE = 8
+
 
 #网络默认输入图像的大小
-INPUT_SIZE = 300
+INPUT_SIZE = 320
 #训练最多的epoch
-MAX_EPOCH = 100
+MAX_EPOCH = 30
 # 使用gpu的数目
-GPUS = 2
+GPUS = 1
 # 从第几个epoch开始resume训练，如果为0，从头开始
 RESUME_EPOCH = 0
 
@@ -27,7 +28,7 @@ LR = 1e-3
 
 
 # 采用的模型名称
-model_name = 'resnext101_32x32d'
+model_name = 'resnet50'
 
 from models import Resnet50, Resnet101, Resnext101_32x8d,Resnext101_32x16d, Densenet121, Densenet169, Mobilenetv2, Efficientnet, Resnext101_32x32d, Resnext101_32x48d
 MODEL_NAMES = {

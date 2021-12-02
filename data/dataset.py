@@ -34,8 +34,9 @@ class  SelfCustomDataset(Dataset):
         # 所有图片的绝对路径
         with open(label_file, 'r') as f:
             #label_file的格式， （label_file image_label)
-            self.imgs = list(map(lambda line: line.strip().split(' '), f))
-      # 相关预处理的初始化
+            self.imgs = list(map(lambda line: line.strip().split(';'), f))     #map不能直接显示  需要加list
+            print(self.imgs)
+                  # 相关预处理的初始化
       #   self.transforms=transform
         self.img_aug=True
         if imageset == 'train':

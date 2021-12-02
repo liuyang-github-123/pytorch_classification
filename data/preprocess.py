@@ -11,14 +11,16 @@ import random
 
 
 if __name__ == '__main__':
-    traindata_path = cfg.BASE + 'train'
+    traindata_path = "E://pytorch_classification//data//train"
     labels = os.listdir(traindata_path)
-    valdata_path = cfg.BASE + 'test'
+    print(labels)
+    valdata_path = "E://pytorch_classification//data//test"
     ##写train.txt文件
-    txtpath = cfg.BASE
+    txtpath = "E://pytorch_classification//data//"
     # print(labels)
     for index, label in enumerate(labels):
-        imglist = glob.glob(os.path.join(traindata_path,label, '*.png'))
+        print(index,label)
+        imglist = glob.glob(os.path.join(traindata_path, label, '*.jpg'))
         # print(imglist)
         random.shuffle(imglist)
         print(len(imglist))
@@ -26,14 +28,14 @@ if __name__ == '__main__':
         vallist = imglist[(int(0.8*len(imglist))+1):]
         with open(txtpath + 'train.txt', 'a')as f:
             for img in trainlist:
-                # print(img + ' ' + str(index))
-                f.write(img + ' ' + str(index))
+                # print(img + ',' + str(index))
+                f.write(img + ';' + str(index))
                 f.write('\n')
 
         with open(txtpath + 'val.txt', 'a')as f:
             for img in vallist:
-                # print(img + ' ' + str(index))
-                f.write(img + ' ' + str(index))
+                # print(img + ',' + str(index))
+                f.write(img + ';' + str(index))
                 f.write('\n')
 
 
